@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+source: https://polaranalytics.statuspage.io/
+status_page: https://polaranalytics.statuspage.io/
+status_page_provider: Atlassian Statuspage
+status_summary: All Systems Operational (probed 2026-07-20)
+status_components:
+  - name: Polar Analytics Features
+    uptime_90d: "99.96%"
+  - name: Polar Pixel
+    uptime_90d: "99.67%"
+  - name: Activate (CAPI & Klaviyo Enrichment Flows)
+  - name: Schedules & Email Reports
+  - name: Data Pipeline
+  - name: Shopify
+  - name: Klaviyo
+  - name: Facebook Ads
+  - name: Google Ads
+  - name: Google Analytics 4
+  - name: Other connectors
+status_subscribe:
+  email: true
+  slack: true
+  teams: true
+  atom: https://polaranalytics.statuspage.io/history.atom
+  rss: https://polaranalytics.statuspage.io/history.rss
+versioning:
+  scheme: unversioned
+  notes: >-
+    The hosted Polar Headless MCP surface is not path/header versioned; tools are
+    versioned server-side. The pixel SDK is semver-versioned on npm (0.18.0).
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  notes: No public deprecation/Sunset-header policy was found.
+sla:
+  url: null
+  uptime_target: null
+  notes: >-
+    No published SLA/uptime commitment found; the status page reports observed
+    90-day uptime only.
+deprecated_operations: []

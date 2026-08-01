@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: https://registry.npmjs.org/@polar-analytics/pixel-sdk
+packages:
+  - language: javascript
+    registry: npm
+    name: "@polar-analytics/pixel-sdk"
+    url: https://www.npmjs.com/package/@polar-analytics/pixel-sdk
+    install: npm install @polar-analytics/pixel-sdk
+    version: 0.18.0
+    license: MIT
+    description: >-
+      A JavaScript/TypeScript SDK for reporting customer touchpoints to Polar
+      Analytics — the client library for the first-party Polar Pixel (Lifetime ID)
+      that POSTs events to pixel-api.polaranalytics.com.
+    homepage: https://www.polaranalytics.com/
+    official: true
+notes: >-
+  The @polar-analytics npm scope is first-party (homepage www.polaranalytics.com).
+  Do NOT conflate with @polar-sh/sdk (polar.sh / polarsource billing platform) or
+  polar.com (fitness wearables) — different companies. The polar-analytics GitHub
+  org (https://github.com/polar-analytics) hosts internal Singer taps/ETL repos
+  (tap-shopify, tap-facebook, ...), not consumer API client libraries.

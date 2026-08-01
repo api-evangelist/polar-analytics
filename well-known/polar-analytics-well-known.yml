@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+hosts:
+  - host: https://api.polaranalytics.com
+    documents:
+      - path: /.well-known/oauth-authorization-server   # RFC 8414
+        status: 200
+        file: polar-analytics-oauth-authorization-server.json
+      - path: /.well-known/oauth-protected-resource      # RFC 9728 (served same metadata)
+        status: 200
+        file: polar-analytics-oauth-authorization-server.json
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://ai-service.polaranalytics.com
+    documents:
+      - path: /.well-known/oauth-authorization-server   # RFC 8414
+        status: 200
+        file: polar-analytics-oauth-authorization-server.json
+  - host: https://www.polaranalytics.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404

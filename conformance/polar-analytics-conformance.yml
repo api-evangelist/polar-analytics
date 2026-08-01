@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://api.polaranalytics.com/.well-known/oauth-authorization-server
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      OAuth 2.0 authorization server metadata published at
+      /.well-known/oauth-authorization-server with authorization_code and
+      client_credentials grants.
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server returns HTTP 200 with issuer + endpoints.
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: registration_endpoint advertised (https://ai-service.polaranalytics.com/oauth/register).
+  - id: pkce-rfc7636
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256.
+  - id: mcp
+    conforms: true
+    evidence: Hosted Model Context Protocol server at https://api.polaranalytics.com/mcp with 8 tools.
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      SaaS License Agreement + Data Processing Agreement reference Regulation (EU)
+      2016/679 (GDPR) on https://www.polaranalytics.com/policy.
+  - id: openid-connect
+    conforms: false
+    evidence: /.well-known/openid-configuration returns HTTP 404.

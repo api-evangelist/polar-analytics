@@ -1,0 +1,8 @@
+generated: '2026-07-20'
+method: generated
+source: mcp/polar-analytics-mcp.yml
+skills:
+  - file: polar-analytics-generate-ecommerce-report.md
+    name: Generate an ecommerce analytics report with Polar
+    api: mcp/polar-analytics-mcp.yml
+    operations: [get_context, list_dimensions, generate_report, generate_report_link, rate_report]

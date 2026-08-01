@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://intercom.help/polar-app/en/articles/12960325-using-mcp-tools-as-an-api
+docs: https://intercom.help/polar-app/en/articles/12892599-use-polar-mcp-in-claude-claude-tag
+summary:
+  types: [http, oauth2]
+  http_schemes: [bearer]
+  oauth2_flows: [authorizationCode, clientCredentials]
+schemes:
+  - name: apiKeyBearer
+    type: http
+    scheme: bearer
+    description: >-
+      API key generated on the Polar MCP page (https://app.polaranalytics.com/mcp),
+      passed as `Authorization: Bearer <API_KEY>`. Used for direct calls to the
+      Polar MCP tool endpoints (https://api.polaranalytics.com/mcp/tool/<tool_name>).
+    source: https://intercom.help/polar-app/en/articles/12960325-using-mcp-tools-as-an-api
+  - name: oauth2
+    type: oauth2
+    description: >-
+      OAuth 2.0 authorization server (RFC 8414) advertised at
+      https://api.polaranalytics.com/.well-known/oauth-authorization-server for the
+      hosted MCP connector. Supports Dynamic Client Registration (RFC 7591) and PKCE (S256).
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://ai-service.polaranalytics.com/oauth/authorize
+        tokenUrl: https://ai-service.polaranalytics.com/oauth/token
+        registrationUrl: https://ai-service.polaranalytics.com/oauth/register
+        pkce: S256
+      - flow: clientCredentials
+        tokenUrl: https://ai-service.polaranalytics.com/oauth/token
+    source: https://api.polaranalytics.com/.well-known/oauth-authorization-server

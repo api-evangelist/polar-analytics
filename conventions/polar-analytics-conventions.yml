@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: https://intercom.help/polar-app/en/articles/12960325-using-mcp-tools-as-an-api
+summary: >-
+  Cross-cutting request/response semantics for the Polar Headless MCP, which doubles
+  as Polar's HTTP API surface. Tools are invoked as JSON over HTTPS.
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer <API_KEY>'
+  notes: >-
+    API key generated on the Polar MCP page; OAuth 2.0 (auth code / client credentials,
+    PKCE S256, dynamic client registration) available for hosted connectors.
+  see: authentication/polar-analytics-authentication.yml
+transport:
+  protocol: https
+  base_url: https://api.polaranalytics.com/mcp
+  invocation: POST https://api.polaranalytics.com/mcp/tool/<tool_name>
+  media_type: application/json
+context_pattern:
+  description: >-
+    Agents call get_context first to discover the conversation ID, workspace details,
+    and the available metrics/dimensions before generating a report.
+  primer_tool: get_context
+idempotency:
+  supported: false
+  notes: No idempotency-key contract is documented for the Polar MCP tool endpoints.
+pagination:
+  supported: unknown
+  notes: Reports return a rows list plus a totals row; no cursor/offset pagination is documented.
+error_envelope:
+  documented: false
+  notes: No public error-code reference was found; errors surface through the MCP client.
+cross_links:
+  authentication: authentication/polar-analytics-authentication.yml
+  mcp: mcp/polar-analytics-mcp.yml
+  well_known: well-known/polar-analytics-well-known.yml

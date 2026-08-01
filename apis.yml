@@ -1,7 +1,28 @@
 aid: polar-analytics
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/polar-analytics.png
 name: Polar Analytics
-description: Polar Analytics is a company surfaced as a portfolio company of point-nine and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Polar Analytics is an all-in-one data analytics and AI platform purpose-built for
+  Shopify-based ecommerce and DTC brands. It consolidates data from 45+ sources into a
+  dedicated Snowflake warehouse, ships 400+ pre-built ecommerce metrics with a semantic
+  layer, and adds a first-party pixel with lifetime ID, incrementality testing, Klaviyo
+  audience enrichment, and advertising conversion signals for Meta and Google. Its AI
+  layer includes agents for data analysis, media buying, email marketing, and inventory
+  planning, all exposed to LLM clients through the hosted Polar Headless MCP server at
+  api.polaranalytics.com/mcp with Bearer API-key and OAuth 2.0 access. Backed by
+  point-nine.
 url: https://raw.githubusercontent.com/api-evangelist/polar-analytics/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,10 +32,45 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Analytics
+- Ecommerce
+- Shopify
+- Business Intelligence
+- MCP
+- AI Agents
+- Data
+apis:
+- name: Polar Headless MCP
+  description: >-
+    Hosted Model Context Protocol server that doubles as Polar's HTTP API surface;
+    invoke tools at POST https://api.polaranalytics.com/mcp/tool/<tool_name> with a
+    Bearer API key. Exposes 8 tools for generating ecommerce analytics reports,
+    dashboards, dimensions, and shareable deep links.
+  humanURL: https://intercom.help/polar-app/en/articles/12960325-using-mcp-tools-as-an-api
+  baseURL: https://api.polaranalytics.com
+  properties:
+  - type: MCPServer
+    url: mcp/polar-analytics-mcp.yml
+  - type: Authentication
+    url: authentication/polar-analytics-authentication.yml
+  - type: APIReference
+    url: https://intercom.help/polar-app/en/articles/12960325-using-mcp-tools-as-an-api
+- name: Polar Pixel
+  description: >-
+    First-party, server-side tracking pixel that captures the ecommerce customer
+    journey from the merchant's own domain and builds a graph-based Lifetime ID.
+    Client events are reported via the @polar-analytics/pixel-sdk to the pixel
+    ingestion endpoint at pixel-api.polaranalytics.com.
+  humanURL: https://www.polaranalytics.com/features/polar-pixel-and-lifetime-id
+  baseURL: https://pixel-api.polaranalytics.com
+  properties:
+  - type: SDKs
+    url: packages/polar-analytics-packages.yml
+  - type: Documentation
+    url: https://intercom.help/polar-app/en/articles/6752194-using-the-polar-pixel-complete-installation-tracking-setup-guide
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +79,50 @@ maintainers:
 common:
 - type: Website
   url: https://www.polaranalytics.com
+- type: MCPServer
+  url: mcp/polar-analytics-mcp.yml
+- type: WellKnown
+  url: well-known/polar-analytics-well-known.yml
+- type: Authentication
+  url: authentication/polar-analytics-authentication.yml
+- type: Conventions
+  url: conventions/polar-analytics-conventions.yml
+- type: Conformance
+  url: conformance/polar-analytics-conformance.yml
+- type: Compliance
+  url: https://www.polaranalytics.com/policy
+- type: LLMsTxt
+  url: llms/polar-analytics-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/polar-analytics-domain-security.yml
+- type: Packages
+  url: packages/polar-analytics-packages.yml
+- type: SDKs
+  url: packages/polar-analytics-packages.yml
+- type: Lifecycle
+  url: lifecycle/polar-analytics-lifecycle.yml
+- type: StatusPage
+  url: https://polaranalytics.statuspage.io/
+- type: GitHubOrganization
+  url: https://github.com/polar-analytics
+- type: Documentation
+  url: https://intercom.help/polar-app/en/
+- type: Support
+  url: https://intercom.help/polar-app/en/
+- type: Pricing
+  url: https://www.polaranalytics.com/pricing
+- type: Blog
+  url: https://www.polaranalytics.com/blog
+- type: Login
+  url: https://app.polaranalytics.com/login
+- type: TermsOfService
+  url: https://www.polaranalytics.com/policy
+- type: PrivacyPolicy
+  url: https://www.polaranalytics.com/policy
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
