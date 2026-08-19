@@ -15,30 +15,39 @@ server:
     oauth:
       metadata: https://api.polaranalytics.com/.well-known/oauth-authorization-server
       issuer: https://ai-service.polaranalytics.com
-      grant_types: [authorization_code, client_credentials]
+      grant_types:
+      - authorization_code
+      - client_credentials
       pkce: S256
       dynamic_client_registration: true
   clients_documented:
-    - Claude (connector directory + Claude tag/Slack)
-    - ChatGPT (Personal & Teams plans)
-    - Make
-    - n8n
-    - Lovable
-    - Manus
+  - Claude (connector directory + Claude tag/Slack)
+  - ChatGPT (Personal & Teams plans)
+  - Make
+  - n8n
+  - Lovable
+  - Manus
 tools:
-  - name: generate_report
-    description: Generate a custom analytics report with rows, a totals row, and a deep link.
-  - name: get_context
-    description: Retrieve conversation ID, workspace details, available metrics, and dimensions.
-  - name: list_dashboards
-    description: Display available dashboards within the workspace.
-  - name: get_dashboard_details
-    description: Fetch a specific dashboard's configuration and data.
-  - name: list_dimensions
-    description: Check compatible filters/breakdowns for specified metrics.
-  - name: get_view_details
-    description: Retrieve details about a specific saved view.
-  - name: generate_report_link
-    description: Create shareable Polar deep links with visualization modes (table, bar, pie).
-  - name: rate_report
-    description: Provide feedback on a generated report on a 1-10 scale.
+- name: generate_report
+  description: Generate a custom analytics report with rows, a totals row, and a deep link.
+- name: get_context
+  description: Retrieve conversation ID, workspace details, available metrics, and dimensions.
+- name: list_dashboards
+  description: Display available dashboards within the workspace.
+- name: get_dashboard_details
+  description: Fetch a specific dashboard's configuration and data.
+- name: list_dimensions
+  description: Check compatible filters/breakdowns for specified metrics.
+- name: get_view_details
+  description: Retrieve details about a specific saved view.
+- name: generate_report_link
+  description: Create shareable Polar deep links with visualization modes (table, bar, pie).
+- name: rate_report
+  description: Provide feedback on a generated report on a 1-10 scale.
+deployment:
+  mode: remote
+  endpoint: https://api.polaranalytics.com/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
