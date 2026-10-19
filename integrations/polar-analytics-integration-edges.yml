@@ -6,10 +6,17 @@ source:
 - https://composio.dev/toolkits/polar-analytics
 - https://monid.ai/tools/polar-analytics
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/polar-analytics
+- https://crates.io/api/v1
 - https://monid.ai/tools/polar-analytics
 - https://n8n.io/integrations/polar-analytics/
+- https://proxy.golang.org
+- https://pypi.org/pypi
 - https://registry.modelcontextprotocol.io/v0/servers
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/apps/polar-analytics/integrations
 summary: null
 marketplace_apps: []
@@ -45,4 +52,34 @@ edges:
   - namespace-domain
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@polar-analytics/pixel-sdk
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@polar-analytics/pixel-sdk'
+      version: 0.19.0
+      released: '2026-10-02'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@polar-analytics/pixel-sdk
+      repo_leg: domain:polaranalytics.com
+      publisher_leg: org:polar-analytics
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 templates: []
